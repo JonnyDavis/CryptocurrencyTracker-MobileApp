@@ -9,13 +9,16 @@ class CryptoListScreen extends React.Component {
 
 	render() {
 		return (
-			<View styles={styles.container}>
+			<View style={styles.container}>
 				<Text>Placeholder</Text>
 			</View> 
 		);
 	};
 
+
 };
+
+export default CryptoListScreen;
 
 
 const styles = StyleSheet.create({
@@ -24,3 +27,4 @@ const styles = StyleSheet.create({
     width: '100%',
   },
 });
+

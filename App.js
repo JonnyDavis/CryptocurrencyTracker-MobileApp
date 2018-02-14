@@ -1,24 +1,27 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Header from  './src/components/Header.js';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
+import Navigator from './src/navigator';
+import cryptoReducer from './src/store/cryptocurrencies';
+
+const reducers = combineReducers({
+  crypto: cryptoReducer
+});
+
+const middleware = applyMiddleware(thunk);
+
+const store = createStore(reducers, middleware);
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Header />
-      </View>
+      <Provider store={store}>
+        <Navigator />
+      </Provider>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    // justifyContent: 'center',
-    padding: 12,
-    paddingTop: 30,
-  },
-});

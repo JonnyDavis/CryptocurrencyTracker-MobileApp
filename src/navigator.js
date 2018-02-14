@@ -1,6 +1,8 @@
 import { Constants } from 'expo';
 import { Platform } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import CryptoListScreen from './screens/CryptoListScreen';
+
 
 const extraStyles = Platform.select({
 	android: {
@@ -9,8 +11,7 @@ const extraStyles = Platform.select({
 });
 
 export default StackNavigator({
-	List: { screen: FilmListScreen },
-	Detail: { screen: FilmDetailScreen }
+	List: { screen: CryptoListScreen },
 }, {
 	cardStyle: {
 		backgroundColor: '#fff'
