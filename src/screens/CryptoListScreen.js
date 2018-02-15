@@ -1,5 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { StyleSheet, Text, View, TouchableHighlight, FlatList } from 'react-native';
+
+
+const mapStateToProps = (state) => {
+	return {
+		crypto: state.crypto
+	}
+}
+
 
 
 class CryptoListScreen extends React.Component {
@@ -18,7 +27,10 @@ class CryptoListScreen extends React.Component {
 
 };
 
-export default CryptoListScreen;
+const CryptoListScreenWithState = connect(mapStateToProps)(CryptoListScreen);
+
+
+export default CryptoListScreenWithState;
 
 
 const styles = StyleSheet.create({
