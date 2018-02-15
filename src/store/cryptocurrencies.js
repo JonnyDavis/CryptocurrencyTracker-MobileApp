@@ -28,9 +28,27 @@ const fetchCoinData = () => {
 };
 
 
-function reducer(state = [], action) {
+const initialState = {
+	data: []
+}
 
+
+// const getCoinsSelector = (state) => state.
+
+function reducer(state = initialState, action) {
+	if (action.type === types.FETCH_COINS_SUCCESS) {
+		return {
+			...state,
+			data: action.payload,
+
+		};
+	}
 	return state;
 }
 
 export default reducer;
+
+export {
+	actionCreators,
+	fetchCoinData
+};

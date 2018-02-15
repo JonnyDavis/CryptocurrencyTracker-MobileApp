@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, View, TouchableHighlight, FlatList } from 'react-native';
 
+import { getFilmsSelector, fetchCoinData } from '../store/cryptocurrencies'
 
 const mapStateToProps = (state) => {
 	return {
@@ -9,12 +10,22 @@ const mapStateToProps = (state) => {
 	}
 }
 
+const mapDispatchToProps = (dispatch) => {
+	return {
+		fetchCoinData: () => dispatch(fetchCoinData()),
+	};
+};
+
 
 
 class CryptoListScreen extends React.Component {
   static navigationOptions = {
   	title: 'Cryptocurrency Tracker'
   };
+
+  componentDidMount() {
+  	this.props.fetchCoinData()
+  }
 
 	render() {
 		return (
@@ -27,7 +38,7 @@ class CryptoListScreen extends React.Component {
 
 };
 
-const CryptoListScreenWithState = connect(mapStateToProps)(CryptoListScreen);
+const CryptoListScreenWithState = connect(mapStateToProps, mapDispatchToProps)(CryptoListScreen);
 
 
 export default CryptoListScreenWithState;
