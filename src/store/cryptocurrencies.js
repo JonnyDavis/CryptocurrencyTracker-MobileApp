@@ -32,6 +32,10 @@ const initialState = {
 	data: []
 }
 
+const getCryptoSelector = (state) => {
+	state.crypto.data;
+}
+
 
 // const getCoinsSelector = (state) => state.
 
@@ -50,5 +54,6 @@ export default reducer;
 
 export {
 	actionCreators,
-	fetchCoinData
+	fetchCoinData,
+	getCryptoSelector
 };

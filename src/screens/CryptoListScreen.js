@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, View, TouchableHighlight, FlatList } from 'react-native';
-
-import { getFilmsSelector, fetchCoinData } from '../store/cryptocurrencies'
+import CryptoList from '../components/CryptoList';
+import { getCryptoSelector, fetchCoinData, actionCreators } from '../store/cryptocurrencies';
 
 const mapStateToProps = (state) => {
 	return {
-		crypto: state.crypto
+		crypto: getCryptoSelector(state)
 	}
 }
 
@@ -30,7 +30,7 @@ class CryptoListScreen extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Text>Placeholder</Text>
+				<CryptoList crypto={this.props.crypto} />
 			</View> 
 		);
 	};
